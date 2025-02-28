@@ -693,3 +693,4 @@ fabric.properties
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,rider,macos,csharp
+.idea/.idea.College-CS-Final/.idea/projectSettingsUpdater.xml
