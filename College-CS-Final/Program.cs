@@ -26,3 +26,14 @@ Console.WriteLine("\tADMIN MENU\n" +
                   "6. Delete Product\n" +
                   "7. Sell Product");
 Console.WriteLine("______________________________");
+
+public class Product
+{
+	// властивості продукта
+	public string Name { get; set; }
+	public string? Description { get; set; }
+	public double Price { get; set; }
+	public int Quantity { get; set; }
+	public int Discount { get; set; }
+	public string Category { get; set; }
+}
