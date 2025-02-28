@@ -1,0 +1,15 @@
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/bin/Debug/net7.0/College-CS-Final
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/bin/Debug/net7.0/College-CS-Final.deps.json
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/bin/Debug/net7.0/College-CS-Final.runtimeconfig.json
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/bin/Debug/net7.0/College-CS-Final.dll
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/bin/Debug/net7.0/College-CS-Final.pdb
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.csproj.AssemblyReference.cache
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.AssemblyInfoInputs.cache
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.AssemblyInfo.cs
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.csproj.CoreCompileInputs.cache
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.dll
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/refint/College-CS-Final.dll
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.pdb
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/College-CS-Final.genruntimeconfig.cache
+/Users/user/RiderProjects/College-CS-Final/College-CS-Final/obj/Debug/net7.0/ref/College-CS-Final.dll
