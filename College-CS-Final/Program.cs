@@ -27,6 +27,22 @@ Console.WriteLine("\tADMIN MENU\n" +
                   "7. Sell Product");
 Console.WriteLine("______________________________");
 
+Console.Write("Your choice: ");
+int choice = int.Parse(Console.ReadLine());
+
+switch (choice)
+{
+	case 1:
+		var item = new Product();
+		item.Name = Console.ReadLine();
+		item.Description = Console.ReadLine();
+		item.Price = double.Parse(Console.ReadLine());
+		item.Quantity = int.Parse(Console.ReadLine());
+		item.Discount = int.Parse(Console.ReadLine());
+		item.Category = Console.ReadLine();
+		break;
+}
+
 public class Product
 {
 	// властивості продукта
