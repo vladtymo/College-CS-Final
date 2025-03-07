@@ -14,38 +14,41 @@
 
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 Console.Clear(); // очищення консолі
-
-Console.WriteLine("------------- Welcome to Supermarket! -------------");
-
-Console.WriteLine("\tADMIN MENU\n" +
-                  "1. Add New Product\n" +
-                  "2. Save Products\n" +
-                  "3. Load Products\n" +
-                  "4. Show All Products\n" +
-                  "5. Find Product\n" +
-                  "6. Delete Product\n" +
-                  "7. Sell Product");
-Console.WriteLine("______________________________");
-
-Console.Write("Your choice: ");
-int choice = int.Parse(Console.ReadLine());
-
 Product item = new Product();
 
-switch (choice)
+while (true)
 {
-	case 1:
-		item.Name = Console.ReadLine();
-		item.Description = Console.ReadLine();
-		item.Price = double.Parse(Console.ReadLine());
-		item.Quantity = int.Parse(Console.ReadLine());
-		item.Discount = int.Parse(Console.ReadLine());
-		item.Category = Console.ReadLine();
-		break;
-	case 4:
-		Console.WriteLine($"Name: {item.Name}");
-		Console.WriteLine($"Price: {item.Price}$");
-		break;
+	Console.Clear();
+	Console.WriteLine("------------- Welcome to Supermarket! -------------");
+
+	Console.WriteLine("\tADMIN MENU\n" +
+	                  "1. Add New Product\n" +
+	                  "2. Save Products\n" +
+	                  "3. Load Products\n" +
+	                  "4. Show All Products\n" +
+	                  "5. Find Product\n" +
+	                  "6. Delete Product\n" +
+	                  "7. Sell Product");
+	Console.WriteLine("______________________________");
+	
+	Console.Write("Your choice: ");
+	int choice = int.Parse(Console.ReadLine());
+	
+	switch (choice)
+	{
+		case 1:
+			item.Name = Console.ReadLine();
+			item.Description = Console.ReadLine();
+			item.Price = double.Parse(Console.ReadLine());
+			item.Quantity = int.Parse(Console.ReadLine());
+			item.Discount = int.Parse(Console.ReadLine());
+			item.Category = Console.ReadLine();
+			break;
+		case 4:
+			Console.WriteLine($"Name: {item.Name}");
+			Console.WriteLine($"Price: {item.Price}$");
+			break;
+	}
 }
 
 public class Product
