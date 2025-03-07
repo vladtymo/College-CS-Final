@@ -49,6 +49,8 @@ while (true)
 			Console.WriteLine($"Price: {item.Price}$");
 			break;
 	}
+
+	Console.ReadKey();
 }
 
 public class Product
