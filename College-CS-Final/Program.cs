@@ -30,16 +30,21 @@ Console.WriteLine("______________________________");
 Console.Write("Your choice: ");
 int choice = int.Parse(Console.ReadLine());
 
+Product item = new Product();
+
 switch (choice)
 {
 	case 1:
-		var item = new Product();
 		item.Name = Console.ReadLine();
 		item.Description = Console.ReadLine();
 		item.Price = double.Parse(Console.ReadLine());
 		item.Quantity = int.Parse(Console.ReadLine());
 		item.Discount = int.Parse(Console.ReadLine());
 		item.Category = Console.ReadLine();
+		break;
+	case 4:
+		Console.WriteLine($"Name: {item.Name}");
+		Console.WriteLine($"Price: {item.Price}$");
 		break;
 }
 
@@ -51,5 +56,13 @@ public class Product
 	public double Price { get; set; }
 	public int Quantity { get; set; }
 	public int Discount { get; set; }
+	public string Vendor { get; set; }
 	public string Category { get; set; }
+}
+
+public class Food : Product
+{
+	// властивості продукта
+	public string ExpirationDate { get; set; }
+	public string Components { get; set; }
 }
