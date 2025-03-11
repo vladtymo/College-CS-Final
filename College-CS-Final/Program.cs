@@ -13,12 +13,11 @@
 */
 
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
-Console.Clear(); // очищення консолі
 Product item = new Product();
 
 while (true)
 {
-	Console.Clear();
+	Console.Clear(); // очищення консолі
 	Console.WriteLine("------------- Welcome to Supermarket! -------------");
 
 	Console.WriteLine("\tADMIN MENU\n" +
