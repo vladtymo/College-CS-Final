@@ -37,16 +37,10 @@ while (true)
 	switch (choice)
 	{
 		case 1:
-			item.Name = Console.ReadLine();
-			item.Description = Console.ReadLine();
-			item.Price = double.Parse(Console.ReadLine());
-			item.Quantity = int.Parse(Console.ReadLine());
-			item.Discount = int.Parse(Console.ReadLine());
-			item.Category = Console.ReadLine();
+			item.ReadFromConsole();
 			break;
 		case 4:
-			Console.WriteLine($"Name: {item.Name}");
-			Console.WriteLine($"Price: {item.Price}$");
+			item.Show();
 			break;
 	}
 
@@ -63,6 +57,27 @@ public class Product
 	public int Discount { get; set; }
 	public string Vendor { get; set; }
 	public string Category { get; set; }
+
+	public void ReadFromConsole()
+	{
+		Console.Write("Enter name: ");
+		Name = Console.ReadLine();
+		Console.Write("Enter price: ");
+		Price = double.Parse(Console.ReadLine());
+		Description = Console.ReadLine();
+		Quantity = int.Parse(Console.ReadLine());
+		Discount = int.Parse(Console.ReadLine());
+		Category = Console.ReadLine();
+	}
+	
+	public void Show()
+	{
+		Console.WriteLine($"Name: {Name}");
+		Console.WriteLine($"Price: {Price}$");
+		Console.WriteLine($"Quantity: {Quantity}$");
+		Console.WriteLine($"Discount: {Discount}%");
+		Console.WriteLine($"Category: {Category}");
+	}
 }
 
 public class Food : Product
