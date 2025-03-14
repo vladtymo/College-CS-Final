@@ -13,7 +13,7 @@
 */
 
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
-Product item = new Product();
+List<Product> items = new();
 
 while (true)
 {
@@ -36,13 +36,17 @@ while (true)
 	switch (choice)
 	{
 		case 1:
-			item.ReadFromConsole();
+			Product newItem = new();
+			newItem.ReadFromConsole();
+			items.Add(newItem);
 			break;
 		case 4:
-			item.Show();
+			foreach (Product item in items)
+				item.Show();
 			break;
 	}
 
+	Console.WriteLine("Натистінь щось для продовження...");
 	Console.ReadKey();
 }
 
@@ -54,7 +58,6 @@ public class Product
 	public double Price { get; set; }
 	public int Quantity { get; set; }
 	public int Discount { get; set; }
-	public string Vendor { get; set; }
 	public string Category { get; set; }
 
 	public void ReadFromConsole()
@@ -63,14 +66,19 @@ public class Product
 		Name = Console.ReadLine();
 		Console.Write("Enter price: ");
 		Price = double.Parse(Console.ReadLine());
+		Console.Write("Enter description: ");
 		Description = Console.ReadLine();
+		Console.Write("Enter quantity: ");
 		Quantity = int.Parse(Console.ReadLine());
+		Console.Write("Enter discount: ");
 		Discount = int.Parse(Console.ReadLine());
+		Console.Write("Enter category: ");
 		Category = Console.ReadLine();
 	}
 	
 	public void Show()
 	{
+		Console.WriteLine("------ Product ------");
 		Console.WriteLine($"Name: {Name}");
 		Console.WriteLine($"Price: {Price}$");
 		Console.WriteLine($"Quantity: {Quantity}$");
