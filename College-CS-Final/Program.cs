@@ -13,7 +13,9 @@
 */
 
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
+
 List<Product> items = new();
+List<Food> foods = new();
 
 while (true)
 {
@@ -22,9 +24,11 @@ while (true)
 
 	Console.WriteLine("\tADMIN MENU\n" +
 	                  "1. Add New Product\n" +
+	                  "12. Add New Food\n" +
 	                  "2. Save Products\n" +
 	                  "3. Load Products\n" +
 	                  "4. Show All Products\n" +
+	                  "42 Show All Foods\n" +
 	                  "5. Find Product\n" +
 	                  "6. Delete Product\n" +
 	                  "7. Sell Product");
@@ -40,9 +44,18 @@ while (true)
 			newItem.ReadFromConsole();
 			items.Add(newItem);
 			break;
+		case 12:
+			Food newfood = new();
+			newfood.ReadFromConsole();
+			foods.Add(newfood);
+			break;
 		case 4:
 			foreach (Product item in items)
 				item.Show();
+			break;
+		case 42:
+			foreach (Food food in foods)
+				food.Show();
 			break;
 	}
 
@@ -92,4 +105,36 @@ public class Food : Product
 	// властивості продукта
 	public string ExpirationDate { get; set; }
 	public string Components { get; set; }
+    
+	public void ReadFromConsole()
+	{
+		Console.Write("Enter name: ");
+		Name = Console.ReadLine();
+		Console.Write("Enter price: ");
+		Price = double.Parse(Console.ReadLine());
+		Console.Write("Enter description: ");
+		Description = Console.ReadLine();
+		Console.Write("Enter quantity: ");
+		Quantity = int.Parse(Console.ReadLine());
+		Console.Write("Enter discount: ");
+		Discount = int.Parse(Console.ReadLine());
+		Console.Write("Enter category: ");
+		Category = Console.ReadLine();
+		Console.Write("Enter expiration: ");
+		ExpirationDate = Console.ReadLine();
+		Console.Write("Enter components: ");
+		Components = Console.ReadLine();
+	}
+	
+	public void Show()
+	{
+		Console.WriteLine("------ Product ------");
+		Console.WriteLine($"Name: {Name}");
+		Console.WriteLine($"Price: {Price}$");
+		Console.WriteLine($"Quantity: {Quantity}$");
+		Console.WriteLine($"Discount: {Discount}%");
+		Console.WriteLine($"Category: {Category}");
+		Console.WriteLine($"Expiration: {ExpirationDate}");
+		Console.WriteLine($"Components: {Components}");
+	}
 }
