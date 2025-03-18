@@ -14,8 +14,17 @@
 
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 
-List<Product> items = new();
-List<Food> foods = new();
+List<Product> items = new()
+{
+	new Product() { Name = "Nike Bigsvoosh", Category = "Trainers", Price = 2500, Discount = 0, Quantity = 20 },
+	new Product() { Name = "Knife", Category = "Kitchen Item", Price = 40, Discount = 5, Quantity = 220 },
+	new Product() { Name = "PlayStation 6", Category = "Console", Price = 550, Discount = 10, Quantity = 3 },
+};
+List<Food> foods = new()
+{
+	new Food() { Name = "Pizza", Category = "Food", Price = 25, Discount = 0, Quantity = 20, ExpirationDate = "10.4.2025", Components="Cheese, Tomato"},
+	new Food() { Name = "Watermelon", Category = "Fruit", Price = 10, Discount = 5, Quantity = 1, ExpirationDate = "4.8.2025", Components="Water" },
+};
 
 while (true)
 {
@@ -28,7 +37,7 @@ while (true)
 	                  "2. Save Products\n" +
 	                  "3. Load Products\n" +
 	                  "4. Show All Products\n" +
-	                  "42 Show All Foods\n" +
+	                  "42. Show All Foods\n" +
 	                  "5. Find Product\n" +
 	                  "6. Delete Product\n" +
 	                  "7. Sell Product");
@@ -56,6 +65,20 @@ while (true)
 		case 42:
 			foreach (Food food in foods)
 				food.Show();
+			break;
+		case 5:
+			Console.Write("Enter product name to search: ");
+			string name = Console.ReadLine();
+			
+			// логіка пошуку продукта
+			var found = items.Find(x => x.Name == name);
+			if (found == null)
+			{
+				Console.WriteLine("Product not found!");
+				break;
+			}
+			
+			found.Show();
 			break;
 	}
 
