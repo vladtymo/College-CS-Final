@@ -12,6 +12,8 @@
 	Продаж товару(з видачею чеку)
 */
 
+using System.Text.Json;
+
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 
 List<Product> items = new()
@@ -52,6 +54,14 @@ while (true)
 			Product newItem = new();
 			newItem.ReadFromConsole();
 			items.Add(newItem);
+			break;
+		case 2:
+			var json = JsonSerializer.Serialize(items);
+			File.WriteAllText("database.json", json);
+			break;
+		case 3:
+			var jsonData = File.ReadAllText("database.json");
+			items = JsonSerializer.Deserialize<List<Product>>(jsonData);
 			break;
 		case 12:
 			Food newfood = new();
