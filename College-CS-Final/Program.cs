@@ -58,10 +58,16 @@ while (true)
 		case 2:
 			var json = JsonSerializer.Serialize(items);
 			File.WriteAllText("database.json", json);
+			
+			var json2 = JsonSerializer.Serialize(foods);
+			File.WriteAllText("foods.json", json2);
 			break;
 		case 3:
 			var jsonData = File.ReadAllText("database.json");
 			items = JsonSerializer.Deserialize<List<Product>>(jsonData);
+			
+			var jsonData2 = File.ReadAllText("foods.json");
+			foods = JsonSerializer.Deserialize<List<Food>>(jsonData2);
 			break;
 		case 12:
 			Food newfood = new();
@@ -89,6 +95,19 @@ while (true)
 			}
 			
 			found.Show();
+			break;
+		case 6:
+			Console.Write("Enter product name to delete: ");
+			string name2 = Console.ReadLine();
+			
+			var found2 = items.Find(x => x.Name == name2);
+			if (found2 == null)
+			{
+				Console.WriteLine("Product not found!");
+				break;
+			}
+			
+			items.Remove(found2);
 			break;
 	}
 
