@@ -19,7 +19,7 @@ Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 List<Product> items = new()
 {
 	new Product() { Name = "Nike Bigsvoosh", Category = "Trainers", Price = 2500, Discount = 0, Quantity = 20 },
-	new Product() { Name = "Knife", Category = "Kitchen Item", Price = 40, Discount = 5, Quantity = 220 },
+	new Product() { Name = "Knife", Category = "Kitchen Item", Price = 40, Discount = 5, Quantity = 2 },
 	new Product() { Name = "PlayStation 6", Category = "Console", Price = 550, Discount = 10, Quantity = 3 },
 };
 List<Food> foods = new()
@@ -34,6 +34,7 @@ while (true)
 	Console.WriteLine("------------- Welcome to Supermarket! -------------");
 
 	Console.WriteLine("\tADMIN MENU\n" +
+	                  "0. Exit\n" +
 	                  "1. Add New Product\n" +
 	                  "12. Add New Food\n" +
 	                  "2. Save Products\n" +
@@ -50,6 +51,9 @@ while (true)
 	
 	switch (choice)
 	{
+		case 0:
+			Console.WriteLine("Have a good day!");
+			return 0;
 		case 1:
 			Product newItem = new();
 			newItem.ReadFromConsole();
@@ -61,6 +65,7 @@ while (true)
 			
 			var json2 = JsonSerializer.Serialize(foods);
 			File.WriteAllText("foods.json", json2);
+			Console.WriteLine("All products loaded!");
 			break;
 		case 3:
 			var jsonData = File.ReadAllText("database.json");
@@ -68,6 +73,7 @@ while (true)
 			
 			var jsonData2 = File.ReadAllText("foods.json");
 			foods = JsonSerializer.Deserialize<List<Food>>(jsonData2);
+			Console.WriteLine("All products have been saved!");
 			break;
 		case 12:
 			Food newfood = new();
@@ -108,6 +114,30 @@ while (true)
 			}
 			
 			items.Remove(found2);
+			Console.WriteLine($"Product {found2.Name} was removed successfuly!");
+			break;
+		case 7:
+			Console.Write("Enter product name to buy: ");
+			string name3 = Console.ReadLine();
+			
+			var prodToBuy = items.Find(x => x.Name == name3);
+			if (prodToBuy == null)
+			{
+				Console.WriteLine("Product not found!");
+				break;
+			}
+			
+			Console.Write("Enter quantity: ");
+			int quantity = int.Parse(Console.ReadLine());
+
+			if (prodToBuy.Quantity < quantity)
+			{
+				Console.WriteLine($"Not enough quantity! We have only: {prodToBuy.Quantity}");
+				break;
+			}
+			
+			prodToBuy.Quantity -= quantity;
+			Console.WriteLine($"Product {prodToBuy.Name} purchased successfully!");
 			break;
 	}
 
@@ -146,7 +176,7 @@ public class Product
 		Console.WriteLine("------ Product ------");
 		Console.WriteLine($"Name: {Name}");
 		Console.WriteLine($"Price: {Price}$");
-		Console.WriteLine($"Quantity: {Quantity}$");
+		Console.WriteLine($"Quantity: {Quantity}");
 		Console.WriteLine($"Discount: {Discount}%");
 		Console.WriteLine($"Category: {Category}");
 	}
