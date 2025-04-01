@@ -16,17 +16,7 @@ using System.Text.Json;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 
-List<Product> items = new()
-{
-	new Product() { Name = "Nike Bigsvoosh", Category = "Trainers", Price = 2500, Discount = 0, Quantity = 20 },
-	new Product() { Name = "Knife", Category = "Kitchen Item", Price = 40, Discount = 5, Quantity = 2 },
-	new Product() { Name = "PlayStation 6", Category = "Console", Price = 550, Discount = 10, Quantity = 3 },
-};
-List<Food> foods = new()
-{
-	new Food() { Name = "Pizza", Category = "Food", Price = 25, Discount = 0, Quantity = 20, ExpirationDate = "10.4.2025", Components="Cheese, Tomato"},
-	new Food() { Name = "Watermelon", Category = "Fruit", Price = 10, Discount = 5, Quantity = 1, ExpirationDate = "4.8.2025", Components="Water" },
-};
+
 
 while (true)
 {
@@ -55,16 +45,10 @@ while (true)
 			Console.WriteLine("Have a good day!");
 			return 0;
 		case 1:
-			Product newItem = new();
-			newItem.ReadFromConsole();
-			items.Add(newItem);
+			
 			break;
 		case 2:
-			var json = JsonSerializer.Serialize(items);
-			File.WriteAllText("database.json", json);
 			
-			var json2 = JsonSerializer.Serialize(foods);
-			File.WriteAllText("foods.json", json2);
 			Console.WriteLine("All products loaded!");
 			break;
 		case 3:
@@ -143,80 +127,4 @@ while (true)
 
 	Console.WriteLine("Натистінь щось для продовження...");
 	Console.ReadKey();
-}
-
-public class Product
-{
-	// властивості продукта
-	public string Name { get; set; }
-	public string? Description { get; set; }
-	public double Price { get; set; }
-	public int Quantity { get; set; }
-	public int Discount { get; set; }
-	public string Category { get; set; }
-
-	public void ReadFromConsole()
-	{
-		Console.Write("Enter name: ");
-		Name = Console.ReadLine();
-		Console.Write("Enter price: ");
-		Price = double.Parse(Console.ReadLine());
-		Console.Write("Enter description: ");
-		Description = Console.ReadLine();
-		Console.Write("Enter quantity: ");
-		Quantity = int.Parse(Console.ReadLine());
-		Console.Write("Enter discount: ");
-		Discount = int.Parse(Console.ReadLine());
-		Console.Write("Enter category: ");
-		Category = Console.ReadLine();
-	}
-	
-	public void Show()
-	{
-		Console.WriteLine("------ Product ------");
-		Console.WriteLine($"Name: {Name}");
-		Console.WriteLine($"Price: {Price}$");
-		Console.WriteLine($"Quantity: {Quantity}");
-		Console.WriteLine($"Discount: {Discount}%");
-		Console.WriteLine($"Category: {Category}");
-	}
-}
-
-public class Food : Product
-{
-	// властивості продукта
-	public string ExpirationDate { get; set; }
-	public string Components { get; set; }
-    
-	public void ReadFromConsole()
-	{
-		Console.Write("Enter name: ");
-		Name = Console.ReadLine();
-		Console.Write("Enter price: ");
-		Price = double.Parse(Console.ReadLine());
-		Console.Write("Enter description: ");
-		Description = Console.ReadLine();
-		Console.Write("Enter quantity: ");
-		Quantity = int.Parse(Console.ReadLine());
-		Console.Write("Enter discount: ");
-		Discount = int.Parse(Console.ReadLine());
-		Console.Write("Enter category: ");
-		Category = Console.ReadLine();
-		Console.Write("Enter expiration: ");
-		ExpirationDate = Console.ReadLine();
-		Console.Write("Enter components: ");
-		Components = Console.ReadLine();
-	}
-	
-	public void Show()
-	{
-		Console.WriteLine("------ Product ------");
-		Console.WriteLine($"Name: {Name}");
-		Console.WriteLine($"Price: {Price}$");
-		Console.WriteLine($"Quantity: {Quantity}$");
-		Console.WriteLine($"Discount: {Discount}%");
-		Console.WriteLine($"Category: {Category}");
-		Console.WriteLine($"Expiration: {ExpirationDate}");
-		Console.WriteLine($"Components: {Components}");
-	}
 }
