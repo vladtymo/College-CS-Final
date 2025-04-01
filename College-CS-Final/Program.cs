@@ -13,10 +13,11 @@
 */
 
 using System.Text.Json;
+using College_CS_Final;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 
-
+Supermarket supermarket = new();
 
 while (true)
 {
@@ -45,83 +46,32 @@ while (true)
 			Console.WriteLine("Have a good day!");
 			return 0;
 		case 1:
-			
+			supermarket.AddNewProduct();
 			break;
 		case 2:
-			
+			supermarket.Save();
 			Console.WriteLine("All products loaded!");
 			break;
 		case 3:
-			var jsonData = File.ReadAllText("database.json");
-			items = JsonSerializer.Deserialize<List<Product>>(jsonData);
-			
-			var jsonData2 = File.ReadAllText("foods.json");
-			foods = JsonSerializer.Deserialize<List<Food>>(jsonData2);
-			Console.WriteLine("All products have been saved!");
+			supermarket.Load();
 			break;
 		case 12:
-			Food newfood = new();
-			newfood.ReadFromConsole();
-			foods.Add(newfood);
+			supermarket.AddNewFood();
 			break;
 		case 4:
-			foreach (Product item in items)
-				item.Show();
+			supermarket.AllProducts();
 			break;
 		case 42:
-			foreach (Food food in foods)
-				food.Show();
+			supermarket.AllFoods();
 			break;
 		case 5:
-			Console.Write("Enter product name to search: ");
-			string name = Console.ReadLine();
-			
-			// логіка пошуку продукта
-			var found = items.Find(x => x.Name == name);
-			if (found == null)
-			{
-				Console.WriteLine("Product not found!");
-				break;
-			}
-			
-			found.Show();
+			supermarket.FindProduct();
 			break;
 		case 6:
-			Console.Write("Enter product name to delete: ");
-			string name2 = Console.ReadLine();
-			
-			var found2 = items.Find(x => x.Name == name2);
-			if (found2 == null)
-			{
-				Console.WriteLine("Product not found!");
-				break;
-			}
-			
-			items.Remove(found2);
-			Console.WriteLine($"Product {found2.Name} was removed successfuly!");
+			supermarket.RemoveProduct();
 			break;
 		case 7:
-			Console.Write("Enter product name to buy: ");
-			string name3 = Console.ReadLine();
-			
-			var prodToBuy = items.Find(x => x.Name == name3);
-			if (prodToBuy == null)
-			{
-				Console.WriteLine("Product not found!");
-				break;
-			}
-			
-			Console.Write("Enter quantity: ");
-			int quantity = int.Parse(Console.ReadLine());
-
-			if (prodToBuy.Quantity < quantity)
-			{
-				Console.WriteLine($"Not enough quantity! We have only: {prodToBuy.Quantity}");
-				break;
-			}
-			
-			prodToBuy.Quantity -= quantity;
-			Console.WriteLine($"Product {prodToBuy.Name} purchased successfully!");
+			supermarket.SellProduct();
 			break;
 	}
 
