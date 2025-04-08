@@ -2,7 +2,7 @@ namespace College_CS_Final;
 
 public class Menu
 {
-    public void ShowMenu()
+    public void ShowAdminMenu()
     {
         Console.WriteLine("\tADMIN MENU\n" +
                           "0. Exit\n" +
@@ -15,6 +15,21 @@ public class Menu
                           "5. Find Product\n" +
                           "6. Delete Product\n" +
                           "7. Sell Product");
+        Console.WriteLine("______________________________");
+    }
+    public void ShowUserMenu()
+    {
+        Console.WriteLine("\tUSER MENU\n" +
+                          "0. Exit\n" +
+                          "1. Buy Product");
+        Console.WriteLine("______________________________");
+    }
+    public void ShowLoginMenu()
+    {
+        Console.WriteLine("\tCHOOSE YOUR ROLE\n" +
+                          "0. Exit\n" +
+                          "1. User\n" +
+                          "2. Admin\n");
         Console.WriteLine("______________________________");
     }
 
