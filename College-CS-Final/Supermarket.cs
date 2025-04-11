@@ -39,6 +39,7 @@ public class Supermarket
 
         var json2 = JsonSerializer.Serialize(foods);
         File.WriteAllText("foods.json", json2);
+        Console.WriteLine("All products have been saved!");
     }
 
     public void Load()
@@ -48,7 +49,7 @@ public class Supermarket
 			
         var jsonData2 = File.ReadAllText("foods.json");
         foods = JsonSerializer.Deserialize<List<Food>>(jsonData2);
-        Console.WriteLine("All products have been saved!");
+        Console.WriteLine("All products have been loaded!");
     }
 
     public void AddNewFood()

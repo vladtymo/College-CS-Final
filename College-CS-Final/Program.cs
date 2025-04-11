@@ -28,11 +28,15 @@ if (roleChoice == 1)
 	menu.ShowUserMenu();
 	int choice = menu.AskUserInput();
 
+	supermarket.Load(); 
+	
 	switch (choice)
 	{
 		case 0: return 0;
 		case 1:
 			Console.WriteLine("You can buy something!");
+			supermarket.AllProducts();
+			supermarket.SellProduct();
 			break;
 	}
 }
